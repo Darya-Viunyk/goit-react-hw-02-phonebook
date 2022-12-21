@@ -23,6 +23,7 @@ export class App extends Component {
     }));
   };
   render() {
+    const { contacts } = this.state;
     return (
       <>
         <h2>Phonebook</h2>
@@ -31,7 +32,7 @@ export class App extends Component {
         </div>
         <div>
           <h2>Contacts</h2>
-          <Contacts deleteContact={this.deleteContact} />
+          <Contacts contacts={contacts} deleteContact={this.deleteContact} />
         </div>
       </>
     );
