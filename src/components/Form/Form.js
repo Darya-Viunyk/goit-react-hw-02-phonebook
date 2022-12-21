@@ -13,6 +13,7 @@ export class Form extends Component {
     this.props.addUser({ ...this.state });
     this.setState({ name: '', number: '' });
   };
+
   render() {
     return (
       <form onSubmit={this.handleSudmit}>
@@ -40,7 +41,7 @@ export class Form extends Component {
             value={this.state.number}
           />
         </label>
-        <button>Add contact</button>
+        <button type="submit">Add contact</button>
       </form>
     );
   }

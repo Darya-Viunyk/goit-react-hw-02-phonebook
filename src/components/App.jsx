@@ -23,16 +23,20 @@ export class App extends Component {
     }));
   };
   render() {
-    const { contacts } = this.state;
+    const { contacts, addUser, deleteContact } = this.state;
     return (
       <>
         <h2>Phonebook</h2>
         <div>
-          <Form addUser={this.addUser} />
+          <Form addUser={addUser} />
         </div>
         <div>
           <h2>Contacts</h2>
-          <Contacts contacts={contacts} deleteContact={this.deleteContact} />
+          <Contacts
+            contacts={contacts}
+            deleteContact={deleteContact}
+            addUser={addUser}
+          />
         </div>
       </>
     );
