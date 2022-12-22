@@ -1,6 +1,6 @@
 import { Contact } from './Contact';
 
-export const Contacts = ({ id, contacts, deleteContact }) => {
+export const Contacts = ({ contacts, deleteContact }) => {
   return (
     <ul>
       {contacts.map(({ name, id, number }) => {

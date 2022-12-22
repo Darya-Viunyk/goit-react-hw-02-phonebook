@@ -13,8 +13,10 @@ export class App extends Component {
     filter: '',
   };
   addUser = data => {
-    const newUser = { ...data, id: nanoid };
-    this.setState(prevState => ({ contacts: [...prevState.contact, newUser] }));
+    const newUser = { ...data, id: nanoid() };
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newUser],
+    }));
   };
 
   deleteContact = id => {

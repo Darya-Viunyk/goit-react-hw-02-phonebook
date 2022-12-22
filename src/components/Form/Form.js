@@ -9,7 +9,7 @@ export class Form extends Component {
     this.setState({ [name]: value });
   };
   handleSudmit = event => {
-    event.preventDefalt();
+    event.preventDefault();
     this.props.addUser({ ...this.state });
     this.setState({ name: '', number: '' });
   };
