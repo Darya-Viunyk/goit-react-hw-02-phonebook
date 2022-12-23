@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Form } from './Form/Form';
 import { nanoid } from 'nanoid';
 import { Contacts } from './Contacts/Contacts';
+import { Filter } from './Filter/Filter';
 export class App extends Component {
   state = {
     contacts: [
@@ -24,8 +25,11 @@ export class App extends Component {
       contacts: prevState.contacts.filter(user => user.id !== id),
     }));
   };
+
   render() {
+    const { filter } = this.state;
     const { contacts } = this.state;
+
     return (
       <>
         <h2>Phonebook</h2>
@@ -34,6 +38,7 @@ export class App extends Component {
         </div>
         <div>
           <h2>Contacts</h2>
+          <Filter value={filter} />
           <Contacts
             contacts={contacts}
             deleteContact={this.deleteContact}
