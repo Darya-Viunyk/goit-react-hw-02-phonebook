@@ -10,7 +10,7 @@ export const Contacts = ({ contacts, deleteContact }) => {
             id={id}
             name={name}
             number={number}
-            onDelete={deleteContact}
+            deleteContact={deleteContact}
           />
         );
       })}
