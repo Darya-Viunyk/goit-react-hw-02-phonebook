@@ -27,7 +27,6 @@ export class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
     const { contacts } = this.state;
 
     return (
@@ -38,7 +37,7 @@ export class App extends Component {
         </div>
         <div>
           <h2>Contacts</h2>
-          <Filter value={filter} />
+          <Filter />
           <Contacts
             contacts={contacts}
             deleteContact={this.deleteContact}

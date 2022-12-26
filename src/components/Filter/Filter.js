@@ -7,11 +7,11 @@ export class Filter extends Component {
     name: '',
     number: '',
   };
-  onChangeFilter = value => {
-    this.setState(prevState => ({
-      filter: prevState.name.trim().toLowerCase(),
-    }));
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+    this.contacts.map({ [name]: { name, value } !== [name] });
   };
+
   render() {
     return (
       <>
@@ -19,8 +19,9 @@ export class Filter extends Component {
         <div>
           <input
             value={this.state.value}
-            onChange={this.onChangeFilter}
+            onChange={this.handleChange}
             type="text"
+            name="name"
             placeholder="Search"
           />
         </div>
