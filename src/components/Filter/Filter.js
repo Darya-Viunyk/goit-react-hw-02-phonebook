@@ -1,9 +1,5 @@
+import propTypes from 'prop-types';
 export const Filter = ({ onChangeValue, value, getFilteredContacts }) => {
-  // const onChange = event => {
-  //   const value = event.target.value.trim().toLowerCase();
-  //   onChangeValue(value);
-  // };
-
   return (
     <>
       <span>Find contacts by name</span>
@@ -19,17 +15,8 @@ export const Filter = ({ onChangeValue, value, getFilteredContacts }) => {
     </>
   );
 };
-
-// handleSudmit = event => {
-//   event.preventDefault();
-//   console.dir(event.target.elements.name.value);
-// };
-// handleChange = ({ target: { name, value } }) => {
-//   this.setState({ [name]: value });
-// };
-
-// import propTypes from 'prop-types';
-// Filter.propTypes = {
-//   value: propTypes.string.isRequired,
-//   onChangeValue: propTypes.func.isRequired,
-// };
+Filter.propTypes = {
+  value: propTypes.string.isRequired,
+  onChangeValue: propTypes.func.isRequired,
+  getFilteredContacts: propTypes.func.isRequired,
+};
