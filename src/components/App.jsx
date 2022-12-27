@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Form } from './Form/Form';
+import { FormContacts } from './FormContacts/FormContacts';
 import { nanoid } from 'nanoid';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
@@ -12,6 +12,10 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
+  };
+  getFilteredContacts = () => {
+    const { contacts, filter } = this.state;
+    return contacts.filter(it => it.name.toLowerCase().includes(filter));
   };
   addUser = data => {
     const newUser = { ...data, id: nanoid() };
@@ -33,11 +37,16 @@ export class App extends Component {
       <>
         <h2>Phonebook</h2>
         <div>
-          <Form addUser={this.addUser} />
+          <FormContacts addUser={this.addUser} />
         </div>
         <div>
           <h2>Contacts</h2>
-          <Filter />
+          <Filter
+            onChangeValue={event =>
+              this.setState({ filter: event.target.value })
+            }
+            value={this.state.filret}
+          />
           <Contacts
             contacts={contacts}
             deleteContact={this.deleteContact}
