@@ -1,8 +1,8 @@
 export const Filter = ({ onChangeValue, value }) => {
-  const onChange = event => {
-    const value = event.target.value.trim().toLowerCase();
-    onChangeValue(value);
-  };
+  // const onChange = event => {
+  //   const value = event.target.value.trim().toLowerCase();
+  //   onChangeValue(value);
+  // };
 
   return (
     <>
