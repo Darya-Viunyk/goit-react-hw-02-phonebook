@@ -47,8 +47,9 @@ export class App extends Component {
             }
             value={this.state.filret}
           />
+
           <Contacts
-            contacts={contacts}
+            contacts={this.getFilteredContacts()}
             deleteContact={this.deleteContact}
             addUser={this.addUser}
           />
