@@ -1,4 +1,4 @@
-export const Filter = ({ onChangeValue, value }) => {
+export const Filter = ({ onChangeValue, value, getFilteredContacts }) => {
   // const onChange = event => {
   //   const value = event.target.value.trim().toLowerCase();
   //   onChangeValue(value);
