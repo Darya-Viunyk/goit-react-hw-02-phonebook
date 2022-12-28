@@ -1,5 +1,31 @@
+import propTypes from 'prop-types';
 import { Component } from 'react';
+import { Label, NameLabel, Button } from './FormContacts.styled';
 import { Formik, Form, Field } from 'formik';
+import styled from '@emotion/styled';
+import * as yup from 'yup';
+
+const Conteiner = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #dedada;
+  padding: 10px 10px;
+  border-radius: 5px;
+`;
+const Inpyt = styled(Field)`
+  /* margin: auto; */
+  padding: 10px 10px;
+  width: auto;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  display: block;
+`;
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  number: yup.number().min(7).max(11).required(),
+});
 export class FormContacts extends Component {
   state = {
     name: '',
@@ -16,11 +42,15 @@ export class FormContacts extends Component {
 
   render() {
     return (
-      <Formik>
-        <Form onSubmit={this.handleSudmit}>
-          <label>
-            Name
-            <Field
+      <Formik
+        initialValues={{ name: '', number: '' }}
+        validationSchema={schema}
+      >
+        <Conteiner onSubmit={this.handleSudmit}>
+          <Label>
+            <NameLabel>Name</NameLabel>
+
+            <Inpyt
               onChange={this.handleChange}
               type="text"
               name="name"
@@ -29,10 +59,10 @@ export class FormContacts extends Component {
               required
               value={this.state.name}
             />
-          </label>
-          <label>
-            Number
-            <Field
+          </Label>
+          <Label>
+            <NameLabel>Number</NameLabel>
+            <Inpyt
               onChange={this.handleChange}
               type="tel"
               name="number"
@@ -41,10 +71,13 @@ export class FormContacts extends Component {
               required
               value={this.state.number}
             />
-          </label>
-          <button type="submit">Add contact</button>
-        </Form>
+          </Label>
+          <Button type="submit">Add contact</Button>
+        </Conteiner>
       </Formik>
     );
   }
 }
+Form.propTypes = {
+  getValue: propTypes.func.isRequired,
+};

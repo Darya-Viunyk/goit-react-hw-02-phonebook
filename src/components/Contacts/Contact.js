@@ -1,19 +1,20 @@
 import propTypes from 'prop-types';
+import { Button, ItemLi } from './Contact.styled';
 export const Contact = ({ name, number, deleteContact, id }) => {
   return (
     <>
-      <li key={id}>
+      <ItemLi key={id}>
         <span>{name}</span>
         <span>{number}</span>
-        <button
+        <Button
           type="button"
           onClick={() => {
             deleteContact(id);
           }}
         >
           Delete
-        </button>
-      </li>
+        </Button>
+      </ItemLi>
     </>
   );
 };
