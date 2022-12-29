@@ -78,6 +78,6 @@ export class FormContacts extends Component {
     );
   }
 }
-Form.propTypes = {
-  getValue: propTypes.func.isRequired,
+FormContacts.propTypes = {
+  addUser: propTypes.func.isRequired,
 };

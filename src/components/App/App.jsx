@@ -20,8 +20,12 @@ export class App extends Component {
     return contacts.filter(it => it.name.toLowerCase().includes(filter));
   };
   addUser = data => {
-    if (this.state.contacts.some(it => it.name === this.contacts.name)) {
-      alert(`${this.contacts.name} is alredy in contacts`);
+    if (
+      this.state.contacts.some(
+        it => it.name.toLowerCase() === data.name.toLowerCase()
+      )
+    ) {
+      alert(`${data.name} is alredy in contacts`);
       return;
     }
     const newUser = { ...data, id: nanoid() };
